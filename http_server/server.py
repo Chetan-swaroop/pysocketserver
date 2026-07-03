@@ -57,10 +57,15 @@ class HTTPServer:
         self._sock.listen(self.backlog)
         self._sock.settimeout(1.0)  # so the accept loop can notice shutdown
 
+        # host is often "0.0.0.0" (bind-all), which isn't a browsable
+        # address. Show a real, clickable URL alongside it.
+        browsable_host = "localhost" if self.host in ("0.0.0.0", "::") else self.host
+
         logger.info(
-            "Listening on http://%s:%d (docroot=%s, workers=%d)",
+            "Listening on %s:%d (docroot=%s, workers=%d)",
             self.host, self.port, self.handler.doc_root, self.max_workers,
         )
+        logger.info("Open in your browser: http://%s:%d/", browsable_host, self.port)
 
         try:
             while not self._shutdown_event.is_set():
