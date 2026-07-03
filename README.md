@@ -2,7 +2,6 @@
 
 ![tests](https://github.com/Chetan-swaroop/pysocketserver/actions/workflows/tests.yml/badge.svg)
 ![python](https://img.shields.io/badge/python-3.9%2B-blue)
-![license](https://img.shields.io/badge/license-MIT-green)
 
 A HTTP/1.1 web server implemented from scratch on raw TCP sockets — no Flask, no Django, no `http.server`. Every layer is hand-built: the socket handling, the HTTP/1.1 request parser, response framing, keep-alive connection management, and static file serving with proper caching semantics.
 
@@ -96,7 +95,3 @@ tests/
 - TLS termination for HTTPS
 - Chunked transfer-encoding
 - Range requests (`206 Partial Content`) for resumable downloads
-
-## License
-
-MIT — see [LICENSE](LICENSE).
